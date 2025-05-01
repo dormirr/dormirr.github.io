@@ -1,7 +1,7 @@
-baseURL: "https://dormirr.github.io/hugo-PaperMod/"
+baseURL: "https://dormirr.github.io/"
 languageCode: zh-cn
 title: 张天赐的小世界
-copyright: "© [PaperMod Contributors](https://github.com/adityatelange/hugo-PaperMod/graphs/contributors)"
+copyright: "本博客的作品采用 [知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。使用者可以对本创作进行转载、节选、混编、二次创作，但不得运用于商业目的，且使用时须进行署名，采用本创作的内容必须同样采用本协议进行授权。"
 theme: ["PaperMod"]
 
 enableInlineShortcodes: true
@@ -88,7 +88,10 @@ languages:
             url: posts
           - name: Profile Mode
             url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
-
+      contact:
+        email: info@example.org
+        phone: +1 202-555-1212
+      subtitle: The Best Widgets on Earth
   fa:
     languagedirection: rtl
     weight: 3
@@ -115,10 +118,9 @@ outputs:
     - JSON
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  env: production
   description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-  author: Theme PaperMod
-  # author: ["Me", "You"] # multiple authors
+  author: 张天赐
 
   defaultTheme: auto
   # disableThemeToggle: true
@@ -150,29 +152,18 @@ params:
         url: tags
 
   homeInfoParams:
-    Title: "PaperMod's Demo"
+    Title: "张天赐的小世界"
     Content: >
-      👋 Welcome to demo page of Hugo's theme PaperMod!
+      👋 欢迎访问我的博客，我是一名 2020 年毕业的后端研发工程师，目前在北京工作，就职于京东。
 
-      - **PaperMod**  is designed to be clean and simple but fast and responsive theme with useful feature-set that enhances UX.
+      - 工作中主要负责支付营销工具的开发与稳定性保障。在这期间，支撑过若干次 618、1111 大促，以及春晚亿级流量营销，有较为丰富的亿级流量高并发系统设计与实战经验。相信大家在京东购物时一定都用过我负责的系统服务。
 
-      - Feel free to show your support by giving us a star 🌟 on GitHub and sharing with your friends and social media .
-
-      - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper/tree/4330c8b12aa48bfdecbcad6ad66145f679a430b3).
+      - 平时爱好读书与思考，研究一些让我好奇的东西。偶尔会玩玩尤克里里与 Nintendo Switch，享受一个人的平静生活。
 
   socialIcons:
     - name: github
-      title: View Source on Github
-      url: "https://github.com/adityatelange/hugo-PaperMod"
-    - name: Discord
-      title: Join discord community
-      url: "https://discord.gg/ahpmTvhVmp"
-    - name: X
-      title: Share PaperMod on X/Twitter
-      url: "https://x.com/intent/tweet/?text=Checkout%20Hugo%20PaperMod%20%E2%9C%A8%0AA%20fast,%20clean,%20responsive%20Hugo%20theme.&url=https://github.com/adityatelange/hugo-PaperMod&hashtags=Hugo,PaperMod"
-    - name: KoFi
-      title: Buy me a Ko-Fi :)
-      url: "https://ko-fi.com/adityatelange"
+      title: 我的 GitHub
+      url: "https://github.com/dormirr"
 
   editPost:
     URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
