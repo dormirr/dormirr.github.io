@@ -1,110 +1,74 @@
 baseURL: "https://dormirr.github.io/"
-languageCode: zh-cn
 title: 张天赐的小世界
 copyright: "本博客的作品采用 [知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可"
 theme: ["PaperMod"]
 
-enableInlineShortcodes: true
-enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
-enableEmoji: true
-pygmentsUseClasses: true
-mainsections: ["posts", "papermod"]
-
-minify:
+# Hugo 配置
+caches: # 缓存
+  images:
+    dir: :cacheDir/images
+enableEmoji: true # Markdown 中使用 emoji
+enableRobotsTXT: true # 生成 robots.txt 文件
+hasCJKLanguage: true # 自动检测内容中的 CJK 语言，影响字数统计
+languageCode: zh-cn # 使用语言
+defaultContentLanguage: zh # 默认语言
+timeZone: Asia/Shanghai # 时区
+markup: # Markdown 渲染
+  goldmark:
+    renderer:
+      unsafe: true # 渲染 Markdown 中混合的原始 HTML
+  highlight: # Code 高亮
+    guessSyntax: true # 未指定语言时自动检测
+    noClasses: false # 使用外部 CSS
+    style: monokailight # 语法高亮样式
+menus: # 导航
+  main:
+    - name: 首页
+      pageRef: /
+      weight: 10
+    - name: 文章
+      pageRef: /posts
+      weight: 20
+    - name: 归档
+      pageRef: /archives
+      weight: 30
+    - name: 分类
+      pageRef: /categories
+      weight: 40
+    - name: 标签
+      pageRef: /tags
+      weight: 50
+    - name: 搜索
+      pageRef: /search
+      weight: 60
+    - name: 关于
+      pageRef: /about
+      weight: 70
+taxonomies: # 分类
+  category: categories
+  tag: tags
+  series: series
+minify: # 压缩
   disableXML: true
-  # minifyOutput: true
-
-pagination:
-  disableAliases: false
-  pagerSize: 5
-
-languages:
-  en:
-    languageName: "English"
-    weight: 1
-    taxonomies:
-      category: categories
-      tag: tags
-      series: series
-    menu:
-      main:
-        - name: Archive
-          url: archives
-          weight: 5
-        - name: Search
-          url: search/
-          weight: 10
-        - name: Tags
-          url: tags/
-          weight: 10
-        - name: WiKi
-          url: https://github.com/adityatelange/hugo-PaperMod/wiki/
-
-    # custom params for each language should be under [langcode].parms - hugo v0.120.0
-    params:
-      languageAltTitle: French
-      profileMode:
-        enabled: true
-        title: PaperMod
-        imageUrl: "https://raw.githubusercontent.com/googlefonts/noto-emoji/master/svg/emoji_u1f9d1_1f3fb_200d_1f4bb.svg"
-        imageTitle: ProfileMode image
-        # imageWidth: 120
-        # imageHeight: 120
-        subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
-        buttons:
-          - name: Blog
-            url: posts
-          - name: Profile Mode
-            url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
-      contact:
-        email: info@example.org
-        phone: +1 202-555-1212
-      subtitle: The Best Widgets on Earth
-
-outputs:
+outputs: # 生成文件
   home:
     - HTML
     - RSS
     - JSON
-
-params:
+pagination: # 分页
+  disableAliases: false
+  pagerSize: 5
+# 网站主要部分
+mainsections: ["posts"]
+params: # 自定义参数
   env: production
-  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  title: 张天赐的小世界
+  defaultTheme: auto # 主题颜色
+  description: "张天赐的小世界，记录个人的学习与生活历程。"
   author: 张天赐
-
-  defaultTheme: auto
-  # disableThemeToggle: true
-  ShowShareButtons: true
-  ShowReadingTime: true
-  # disableSpecial1stPost: true
-  displayFullLangName: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowRssButtonInSectionTermList: true
-  ShowAllPagesInArchive: true
-  ShowPageNums: true
-  ShowToc: true
-  # comments: false
-  images: ["images/papermod-cover.png"]
-
-  profileMode:
-    enabled: false
-    title: PaperMod
-    imageUrl: "#"
-    imageTitle: my image
-    # imageWidth: 120
-    # imageHeight: 120
-    buttons:
-      - name: Archives
-        url: archives
-      - name: Tags
-        url: tags
-
-  homeInfoParams:
+  keywords: [张天赐, Java, 系统架构]
+  DateFormat:
+  homeInfoParams: # 主页信息
     Title: "张天赐的小世界"
     Content: >
       👋 欢迎访问我的博客，我是一名 2020 年毕业的后端研发工程师，目前在北京工作，就职于京东。
@@ -113,16 +77,32 @@ params:
 
       - 平时爱好读书与思考，研究一些让我好奇的东西。偶尔会玩玩尤克里里与 Nintendo Switch，享受一个人的平静生活。
 
-  socialIcons:
+  socialIcons: # 社交图标
     - name: github
       title: 我的 GitHub
       url: "https://github.com/dormirr"
 
-  editPost:
-    URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+  editPost: # 编辑文章
+    URL: "https://github.com/dormirr/dormirr.github.io/tree/main/content"
+    Text: "提出修改建议"
+    appendFilePath: true # 将文件路径附加到编辑链接上
 
+
+  ShowShareButtons: true # 共享按钮
+  ShowReadingTime: true # 显示阅读时间
+  ShowToc: true # 显示目录
+  tocopen: true # 展开目录
+  ShowBreadCrumbs: true # 添加痕迹导航
+  ShowPostNavLinks: true # 添加上一个/下一个页面建议
+  ShowCodeCopyButtons: true # 复制代码
+  ShowWordCount: true # 显示字数
+  ShowRssButtonInSectionTermList: true # 页面展示 RSS 图标
+  displayFullLangName: true # 显示语言名称
+  # comments: true # 开启评论
+
+  ShowAllPagesInArchive: true
+  ShowPageNums: true #
+  images: ["images/papermod-cover.png"]
   # label:
   # iconSVG: '<svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" fill="currentColor"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>'
   # text: "Home"
@@ -146,7 +126,7 @@ params:
   #     hiddenInList: true # hide on list pages and home
   #     hiddenInSingle: true # hide on single page
 
-  # fuseOpts:
+  # fuseOpts: # 搜索
   #     isCaseSensitive: false
   #     shouldSort: true
   #     location: 0
@@ -155,17 +135,8 @@ params:
   #     minMatchCharLength: 0
   #     keys: ["title", "permalink", "summary", "content"]
 
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
-  highlight:
-    noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+enableInlineShortcodes: true
+pygmentsUseClasses: true
 
 # privacy:
 #   vimeo:
