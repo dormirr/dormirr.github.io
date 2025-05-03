@@ -67,7 +67,7 @@ params: # 自定义参数
   description: "张天赐的小世界，记录个人的学习与生活历程。"
   author: 张天赐
   keywords: [张天赐, Java, 系统架构]
-  DateFormat:
+  DateFormat: 2006-02-01
   homeInfoParams: # 主页信息
     Title: "张天赐的小世界"
     Content: >
