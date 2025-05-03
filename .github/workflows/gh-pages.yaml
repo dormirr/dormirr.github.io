@@ -14,7 +14,7 @@ on:
       hugoVersion:
         description: "Hugo Version"
         required: false
-        default: "0.147.0"
+        default: "0.147.1"
 
 # 设置 GITHUB_TOKEN 的权限，允许部署到 GitHub 页面
 permissions:
@@ -37,7 +37,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: ${{ github.event.inputs.hugoVersion || '0.147.0' }}
+      HUGO_VERSION: ${{ github.event.inputs.hugoVersion || '0.147.1' }}
       HUGO_ENVIRONMENT: production
       TZ: Asia/Shanghai
     steps:
