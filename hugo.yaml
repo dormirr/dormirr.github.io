@@ -97,6 +97,14 @@ params: # 自定义参数
   displayFullLangName: true # 显示语言名称
   # comments: true # 开启评论
 
+  assets:
+    disableHLJS: true
+    favicon: Logo.jpg
+    favicon16x16: Logo.jpg
+    favicon32x32: Logo.jpg
+    apple_touch_icon: Logo.jpg
+    safari_pinned_tab: Logo.jpg
+
   ShowAllPagesInArchive: true
   ShowPageNums: true #
   images: ["images/papermod-cover.png"]
@@ -109,14 +117,6 @@ params: # 自定义参数
   # analytics:
   #     google:
   #         SiteVerificationTag: "XYZabc"
-
-  assets:
-    disableHLJS: true
-  #     favicon: "<link / abs url>"
-  #     favicon16x16: "<link / abs url>"
-  #     favicon32x32: "<link / abs url>"
-  #     apple_touch_icon: "<link / abs url>"
-  #     safari_pinned_tab: "<link / abs url>"
 
   # cover:
   #     hidden: true # hide everywhere but not in structured data
