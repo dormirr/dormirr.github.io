@@ -93,6 +93,7 @@ params: # 自定义参数
   ShowCodeCopyButtons: true # 复制代码
   ShowWordCount: true # 显示字数
   ShowRssButtonInSectionTermList: true # 页面展示 RSS 图标
+  ShowFullTextinRSS: true # RSS 输出全文
   displayFullLangName: true # 显示语言名称
   # comments: true # 开启评论
 
