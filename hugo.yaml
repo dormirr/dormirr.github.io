@@ -101,19 +101,25 @@ params: # 自定义参数
   ShowWordCount: true # 显示字数
   ShowRssButtonInSectionTermList: true # 页面展示 RSS 图标
   ShowFullTextinRSS: true # RSS 输出全文
+  ShowAllPagesInArchive: true # 归档页展示所有文章
+  ShowPageNums: true # 展示页数
   displayFullLangName: true # 显示语言名称
-  # comments: true # 开启评论
-
-  assets:
+  fuseOpts: # 搜索
+    isCaseSensitive: false # 是否大小写敏感
+    shouldSort: true # 是否包含匹配项
+    location: 0 # 是否排序
+    distance: 1000
+    threshold: 0.4 # 0.0 完全匹配
+    minMatchCharLength: 0
+    keys: [ "title", "permalink", "summary", "content" ]
+  assets: # Logo
     disableHLJS: true
     favicon: Logo.jpg
     favicon16x16: Logo.jpg
     favicon32x32: Logo.jpg
     apple_touch_icon: Logo.jpg
     safari_pinned_tab: Logo.jpg
-
-  ShowAllPagesInArchive: true
-  ShowPageNums: true #
+  # comments: true # 开启评论
   images: ["images/papermod-cover.png"]
   # label:
   # iconSVG: '<svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" fill="currentColor"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>'
@@ -129,15 +135,6 @@ params: # 自定义参数
   #     hidden: true # hide everywhere but not in structured data
   #     hiddenInList: true # hide on list pages and home
   #     hiddenInSingle: true # hide on single page
-
-  # fuseOpts: # 搜索
-  #     isCaseSensitive: false
-  #     shouldSort: true
-  #     location: 0
-  #     distance: 1000
-  #     threshold: 0.4
-  #     minMatchCharLength: 0
-  #     keys: ["title", "permalink", "summary", "content"]
 
 enableInlineShortcodes: true
 pygmentsUseClasses: true
