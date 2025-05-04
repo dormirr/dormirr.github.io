@@ -5,7 +5,7 @@ url: /about
 summary: about
 ---
 
-[!关于](../关于.webp)
+[!关于](https://www.zhangtianci.cn/关于.webp)
 
 # 介绍
 
