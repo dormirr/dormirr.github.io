@@ -25,24 +25,31 @@ markup: # Markdown 渲染
 menus: # 导航
   main:
     - name: 首页
+      title: 首页
       pageRef: /
       weight: 10
     - name: 文章
+      title: 文章
       pageRef: /posts
       weight: 20
     - name: 归档
+      title: 归档
       pageRef: /archives
       weight: 30
     - name: 分类
+      title: 分类
       pageRef: /categories
       weight: 40
     - name: 标签
+      title: 标签
       pageRef: /tags
       weight: 50
     - name: 搜索
+      title: 搜索
       pageRef: /search
       weight: 60
     - name: 关于
+      title: 关于
       pageRef: /about
       weight: 70
 taxonomies: # 分类
