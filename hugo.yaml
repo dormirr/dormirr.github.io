@@ -3,17 +3,17 @@ title: 张天赐的小世界
 copyright: 本博客的作品采用 [知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可
 theme:
   - PaperMod
-
-# Hugo 配置
-caches: # 缓存
-  images:
-    dir: :cacheDir/images
-enableEmoji: true # Markdown 中使用 emoji
-enableRobotsTXT: true # 生成 robots.txt 文件
 hasCJKLanguage: true # 自动检测内容中的 CJK 语言，影响字数统计
 languageCode: zh-cn # 使用语言
 defaultContentLanguage: zh # 默认语言
 timeZone: Asia/Shanghai # 时区
+enableEmoji: true # Markdown 中使用 emoji
+enableRobotsTXT: true # 生成 robots.txt 文件
+# 网站主要部分
+mainsections: ["posts"]
+pagination: # 分页
+  disableAliases: false
+  pagerSize: 5
 markup: # Markdown 渲染
   goldmark:
     renderer:
@@ -22,6 +22,27 @@ markup: # Markdown 渲染
     guessSyntax: true # 未指定语言时自动检测
     noClasses: false # 使用外部 CSS
     style: monokailight # 语法高亮样式
+outputs: # 生成文件
+  home:
+    - HTML
+    - RSS
+    - JSON
+minify: # 压缩
+  disableXML: true
+enableInlineShortcodes: true # shortcode，类似于模板变量，可以在写 markdown 的时候便捷地插入，官方文档中有一个视频讲的很通俗
+pygmentsUseClasses: true
+caches: # 缓存
+  images:
+    dir: :cacheDir/images
+taxonomies: # 分类
+  category: categories
+  tag: tags
+  series: series
+services:
+  instagram:
+    disableInlineCSS: true
+  x:
+    disableInlineCSS: true
 menus: # 导航
   main:
     - name: 首页
@@ -52,22 +73,6 @@ menus: # 导航
       title: 关于
       pageRef: /about
       weight: 70
-taxonomies: # 分类
-  category: categories
-  tag: tags
-  series: series
-minify: # 压缩
-  disableXML: true
-outputs: # 生成文件
-  home:
-    - HTML
-    - RSS
-    - JSON
-pagination: # 分页
-  disableAliases: false
-  pagerSize: 5
-# 网站主要部分
-mainsections: ["posts"]
 params: # 自定义参数
   env: production
   title: 张天赐的小世界
@@ -79,18 +84,17 @@ params: # 自定义参数
   homeInfoParams: # 主页信息
     Title: 张天赐的小世界
     Content: 👋 欢迎来到我的精神角落，愿我们在这个喧嚣世界里，始终保有孩童般的好奇与热忱。
-
   socialIcons: # 社交图标
     - name: github
       title: 我的 GitHub
       url: https://github.com/dormirr
-
-  editPost: # 编辑文章
-    URL: https://github.com/dormirr/dormirr.github.io/tree/main/content
-    Text: 提出修改建议
-    appendFilePath: true # 将文件路径附加到编辑链接上
-
-
+  assets: # Logo
+    disableHLJS: true
+    favicon: Logo.jpg
+    favicon16x16: Logo.jpg
+    favicon32x32: Logo.jpg
+    apple_touch_icon: Logo.jpg
+    safari_pinned_tab: Logo.jpg
   ShowShareButtons: true # 共享按钮
   ShowReadingTime: true # 显示阅读时间
   ShowToc: true # 显示目录
@@ -112,13 +116,6 @@ params: # 自定义参数
     threshold: 0.4 # 0.0 完全匹配
     minMatchCharLength: 0
     keys: [ "title", "permalink", "summary", "content" ]
-  assets: # Logo
-    disableHLJS: true
-    favicon: Logo.jpg
-    favicon16x16: Logo.jpg
-    favicon32x32: Logo.jpg
-    apple_touch_icon: Logo.jpg
-    safari_pinned_tab: Logo.jpg
   comments: true # 开启评论
   giscus: # 评论配置
     repo: dormirr/dormirr.github.io
@@ -134,23 +131,16 @@ params: # 自定义参数
     darkTheme: dark
     lang: zh-CN
     crossorigin: anonymous
-
   analytics: # 数据分析
     google:
       SiteVerificationTag: G-DVWGEXY6TW
     bing:
       SiteVerificationTag: 14966508B095AA4AD48709F773E35797
-
+  editPost: # 编辑文章
+    URL: https://github.com/dormirr/dormirr.github.io/tree/main/content
+    Text: 提出修改建议
+    appendFilePath: true # 将文件路径附加到编辑链接上
   cover: # 文章封面设置
     hidden: true # 在结构化数据中以外的地方隐藏
     hiddenInList: true # 在主页和列表页隐藏
     hiddenInSingle: true # 在单个页面隐藏
-
-enableInlineShortcodes: true # shortcode，类似于模板变量，可以在写 markdown 的时候便捷地插入，官方文档中有一个视频讲的很通俗
-pygmentsUseClasses: true
-
-services:
-  instagram:
-    disableInlineCSS: true
-  x:
-    disableInlineCSS: true
