@@ -136,8 +136,6 @@ params: # 自定义参数
       SiteVerificationTag: G-DVWGEXY6TW
     bing:
       SiteVerificationTag: 14966508B095AA4AD48709F773E35797
-  busuanzi: # busuanzi
-    enable: true
   editPost: # 编辑文章
     URL: https://github.com/dormirr/dormirr.github.io/tree/main/content
     Text: 提出修改建议
