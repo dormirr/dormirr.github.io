@@ -135,7 +135,3 @@ params: # 自定义参数
     URL: https://github.com/dormirr/dormirr.github.io/tree/main/content
     Text: 提出修改建议
     appendFilePath: true # 将文件路径附加到编辑链接上
-  cover: # 文章封面设置
-    hidden: true # 在结构化数据中以外的地方隐藏
-    hiddenInList: true # 在主页和列表页隐藏
-    hiddenInSingle: true # 在单个页面隐藏
