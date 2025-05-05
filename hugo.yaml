@@ -125,21 +125,21 @@ params: # 自定义参数
     repoId: R_kgDOOi7Wvg
     category: Announcements
     categoryId: DIC_kwDOOi7Wvs4CpyvJ
-    mapping: "pathname"
-    strict: "0"
-    reactionsEnabled: "1"
-    emitMetadata: "0"
-    inputPosition: "bottom"
-    lightTheme: "light"
-    darkTheme: "dark"
-    lang: "zh-CN"
-    crossorigin: "anonymous"
+    mapping: pathname
+    strict: 0
+    reactionsEnabled: 1
+    emitMetadata: 0
+    inputPosition: bottom
+    lightTheme: light
+    darkTheme: dark
+    lang: zh-CN
+    crossorigin: anonymous
 
   analytics: # 数据分析
     google:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: G-DVWGEXY6TW
     bing:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: 14966508B095AA4AD48709F773E35797
 
   cover: # 文章封面设置
     hidden: true # 在结构化数据中以外的地方隐藏
