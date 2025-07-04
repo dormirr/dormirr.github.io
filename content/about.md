@@ -36,7 +36,6 @@ summary: about
 - 名称：张天赐的小世界
 - 描述：一个记录自己生活历程的纸飞机
 - 链接：https://www.zhangtianci.cn
-- logo：https://www.zhangtianci.cn/Logo.jpg
 
 # 排版
 
