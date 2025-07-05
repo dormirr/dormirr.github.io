@@ -14,6 +14,16 @@
     one: "字"
     other: "{{ .Count }} 字"
 
+- id: created_date
+  translation:
+    one: "创建时间"
+    other: "创建于 %s"
+
+- id: modified_date
+  translation:
+    one: "修改时间"
+    other: "修改于 %s"
+
 - id: toc
   translation: "目录"
 

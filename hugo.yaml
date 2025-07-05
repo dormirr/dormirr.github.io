@@ -73,6 +73,11 @@ menus: # 导航
       title: 关于
       pageRef: /about
       weight: 70
+frontmatter:
+  lastmod: # 修改时间读取优先级
+    - lastmod
+    - :fileModTime
+    - :default
 params: # 自定义参数
   env: production
   title: 张天赐的小世界
@@ -97,6 +102,7 @@ params: # 自定义参数
     safari_pinned_tab: Logo.jpg
   ShowShareButtons: true # 共享按钮
   ShowReadingTime: true # 显示阅读时间
+  ShowLastMod: true # 显示更新时间
   ShowToc: true # 显示目录
   tocopen: true # 展开目录
   ShowBreadCrumbs: true # 添加痕迹导航
