@@ -1,4 +1,5 @@
 {{- $scratch := newScratch }}
+{{- $scratch.Set "meta" slice -}}
 
 {{- $timeFormat := default "January 2, 2006" site.Params.DateFormat -}}
 
@@ -6,17 +7,15 @@
 {{- $rawDate := .Date.Format "2006-01-02T15:04:05Z07:00" -}}
 {{- $formatted := .Date | time.Format $timeFormat -}}
 {{- $text := printf (i18n "created_date") $formatted -}}
-{{- $html := printf `<span title="%s">%s</span>` $rawDate $text | safeHTML -}}
-{{- $scratch.Add "meta" (slice $html) -}}
+{{- $scratch.Add "meta" (printf `<span title="%s">%s</span>` $rawDate $text) -}}
 {{- end -}}
 
 {{- if (.Param "ShowLastMod") -}}
 {{- $rawLastmod := .Lastmod.Format "2006-01-02T15:04:05Z07:00" -}}
 {{- $formatted := .Lastmod | time.Format $timeFormat -}}
 {{- $text := printf (i18n "modified_date") $formatted -}}
-{{- $html := printf `<span title="%s">%s</span>` $rawLastmod $text | safeHTML -}}
-{{- $scratch.Add "meta" (slice $html) -}}
-{{- end }}
+{{- $scratch.Add "meta" (printf `<span title="%s">%s</span>` $rawLastmod $text) -}}
+{{- end -}}
 
 {{- if (.Param "ShowReadingTime") -}}
 {{- $scratch.Add "meta" (slice (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime))) }}
