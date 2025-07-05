@@ -3,7 +3,7 @@
 {{- $timeFormat := default "January 2, 2006" site.Params.DateFormat -}}
 
 {{- if not .Date.IsZero -}}
-{{- $rawDate := .Date.UTC.Format "2006-01-02T15:04:05Z07:00" -}}
+{{- $rawDate := .Date.Format "2006-01-02T15:04:05Z07:00" -}}
 {{- $formatted := .Date | time.Format $timeFormat -}}
 {{- $text := printf (i18n "created_date") $formatted -}}
 {{- $html := printf `<span title="%s">%s</span>` $rawDate $text | safeHTML -}}
@@ -11,7 +11,7 @@
 {{- end -}}
 
 {{- if (.Param "ShowLastMod") -}}
-{{- $rawLastmod := .Lastmod.UTC.Format "2006-01-02T15:04:05Z07:00" -}}
+{{- $rawLastmod := .Lastmod.Format "2006-01-02T15:04:05Z07:00" -}}
 {{- $formatted := .Lastmod | time.Format $timeFormat -}}
 {{- $text := printf (i18n "modified_date") $formatted -}}
 {{- $html := printf `<span title="%s">%s</span>` $rawLastmod $text | safeHTML -}}
