@@ -2,7 +2,6 @@
 title: SQL 语句执行缓慢原因分析
 tags:
   - 编程笔记
-  - 系统设计与架构
   - 编程语言与框架
   - SQL
   - 博客
@@ -12,7 +11,7 @@ cover:
 编程语言: SQL
 share: true
 date: 2021-09-05T16:17:00
-lastmod: 2025-09-20T22:24:00
+lastmod: 2025-10-08T23:18:00
 categories: 编程笔记
 ---
 
