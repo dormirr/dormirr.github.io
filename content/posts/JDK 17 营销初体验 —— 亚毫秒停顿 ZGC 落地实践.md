@@ -10,7 +10,7 @@ cover:
 技术分类: 编程语言与框架
 编程语言: Java
 share: true
-lastmod: 2025-09-20T17:03:00
+lastmod: 2025-10-11T23:44:00
 date: 2024-04-30T15:51:00
 categories: 编程笔记
 ---
@@ -70,15 +70,15 @@ categories: 编程笔记
 
 纯计算代码不再受 GC 影响
 
-![](https://pic1.zhimg.com/80/v2-79ef9f6b7f4fb0af0b8d7c819ddfe210_720w.webp)
+![纯计算方法耗时.webp](../../images/%E7%BA%AF%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E8%80%97%E6%97%B6.webp)
 
 升级前
 
-![](https://pic4.zhimg.com/80/v2-4d22329afd29ac1797d9cdd537bc4e0b_720w.webp)
+![升级前 GC.webp](../../images/%E5%8D%87%E7%BA%A7%E5%89%8D%20GC.webp)
 
 升级后
 
-![](https://pic2.zhimg.com/80/v2-1e0836ae66b605c8ce0ecaa30cb106e1_720w.webp)
+![升级后 GC.webp](../../images/%E5%8D%87%E7%BA%A7%E5%90%8E%20GC.webp)
 
 ![](https://pic3.zhimg.com/80/v2-a426eebd613c4798343f71727fb11ac2_720w.webp)
 
