@@ -13,7 +13,7 @@ enableRobotsTXT: true # 生成 robots.txt 文件
 mainsections: ["posts"]
 pagination: # 分页
   disableAliases: false
-  pagerSize: 5
+  pagerSize: 10
 markup: # Markdown 渲染
   goldmark:
     renderer:
