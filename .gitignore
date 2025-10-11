@@ -27,3 +27,8 @@ _testmain.go
 .hugo_build.lock
 resources/_gen/
 
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
