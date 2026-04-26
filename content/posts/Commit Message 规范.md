@@ -1,5 +1,5 @@
 ---
-title: 如何贡献有价值的反馈
+title: Commit Message 规范
 tags:
   - 生活指南
   - Git
@@ -9,7 +9,7 @@ share: true
 cover:
     image: ../../images/Commit Message 规范.webp
 date: 2020-10-03T11:14:00
-lastmod: 2026-04-26T13:31:00
+lastmod: 2026-04-26T16:11:00
 categories: 生活指南
 ---
 
