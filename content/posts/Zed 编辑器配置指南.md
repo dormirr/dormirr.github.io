@@ -9,7 +9,7 @@ share: true
 cover:
     image: ../../images/Zed 编辑器配置指南.webp
 date: 2026-02-25T17:32:00
-lastmod: 2026-04-26T16:21:00
+lastmod: 2026-05-04T22:25:00
 categories: 生活指南
 ---
 
@@ -31,17 +31,9 @@ Zed 的出现，某种程度上就是在回应这种疲惫感。
 
 # 基本配置
 
-Zed 版本：0.233.10
+Zed 版本：1.0.1
 
 ```json
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   // 用于 UI 的 Zed 主题名称。
   //
@@ -94,6 +86,15 @@ Zed 版本：0.233.10
   // 是否在补全或插入括号对后显示签名帮助。
   // 如果启用了 `auto_signature_help`，此设置也将被视为启用。
   "show_signature_help_after_edits": true,
+  "indent_guides": {
+    // 决定缩进辅助线的着色方式。
+    // 此设置可取以下三个值：
+    //
+    // 1. "disabled"
+    // 2. "fixed"
+    // 3. "indent_aware"
+    "coloring": "indent_aware",
+  },
   // 启用时，根据查询内容自动调整搜索的大小写敏感性。
   // 如果搜索查询包含任何大写字母，搜索将区分大小写；
   // 如果仅包含小写字母，搜索将不区分大小写。
@@ -118,7 +119,7 @@ Zed 版本：0.233.10
     "tree_view": true,
   },
   "agent": {
-    "default_profile": "write",
+    "default_profile": "minimal",
     // 创建新线程时使用的默认模型。
     "default_model": {
       // 要使用的提供商。
@@ -126,7 +127,7 @@ Zed 版本：0.233.10
       // 要使用的模型。
       "model": "deepseek-reasoner",
       // 是否启用思考。
-      "enable_thinking": false,
+      "enable_thinking": true,
     },
     "favorite_models": [],
     "model_parameters": [],
@@ -174,11 +175,9 @@ Zed 版本：0.233.10
   //      "soft_wrap": "prefer_line", // （已弃用，与 "none" 相同）
   // 2. 软换行超出编辑器宽度的行。
   //      "soft_wrap": "editor_width",
-  // 3. 在首选行长度处软换行。
-  //      "soft_wrap": "preferred_line_length",
-  // 4. 在首选行长度或编辑器宽度中较小者处软换行。
+  // 3. 在首选行长度或编辑器宽度中较小者处软换行。
   //      "soft_wrap": "bounded",
-  "soft_wrap": "preferred_line_length",
+  "soft_wrap": "bounded",
   // 对于启用了软换行的缓冲区，软换行的列位置。
   "preferred_line_length": 120,
   // 控制 Zed 收集哪些信息。
@@ -187,6 +186,14 @@ Zed 版本：0.233.10
     "diagnostics": false,
     // 发送匿名使用数据，如你正使用 Zed 与哪些语言。
     "metrics": false,
+  },
+  // 诊断配置。
+  "diagnostics": {
+    // 内联诊断设置。
+    "inline": {
+      // 是否内联显示诊断信息。
+      "enabled": true,
+    },
   },
   "session": {
     // 是否跳过工作树信任检查。
