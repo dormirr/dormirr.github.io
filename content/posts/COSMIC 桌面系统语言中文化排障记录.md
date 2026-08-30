@@ -7,11 +7,10 @@ tags:
   - Atomic
   - COSMIC
   - 博客
-  - 207）
 生活场景: Linux
 share: true
 date: 2026-08-23T16:40:00
-lastmod: 2026-08-31T01:05:00
+lastmod: 2026-08-31T01:16:00
 cover:
     image: ../../images/COSMIC 桌面系统语言中文化排障记录.webp
 categories: 生活指南
@@ -198,10 +197,10 @@ export LANG=zh_CN.UTF-8
 
 实测两行配置命运不同：
 
-| 变量 | 结果 |
-|------|------|
-| `LANGUAGE=zh_CN` | ✅ 生效——登录 shell 里没有这个变量，start-cosmic 不会重新导入它，environment.d 的值被保留。它只影响 gettext 消息翻译；第二层修复后 `LANG` 已是中文，属于冗余保险（gettext 程序优先读取它） |
-| `LANG=zh_CN.UTF-8` | ❌ 正常登录时被 start-cosmic 重新导入的 `en_US.UTF-8` 覆盖；没有登录 shell 的环境（如 linger 服务）下会生效 |
+| 变量                 | 结果                                                                                                                         |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| `LANGUAGE=zh_CN`   | 生效——登录 shell 里没有这个变量，start-cosmic 不会重新导入它，environment.d 的值被保留。它只影响 gettext 消息翻译；第二层修复后 `LANG` 已是中文，属于冗余保险（gettext 程序优先读取它） |
+| `LANG=zh_CN.UTF-8` | 正常登录时被 start-cosmic 重新导入的 `en_US.UTF-8` 覆盖；没有登录 shell 的环境（如 linger 服务）下会生效                                                 |
 
 结论：environment.d 适合设置登录 shell 里**没有**的变量（不会被 start-cosmic 重新导入），但无法修正每次登录都会被重新污染的 `LANG`。最终处理：三行都保留——`LANG` 作为无登录 shell 场景（linger 服务等）的兜底，`LANGUAGE` 作为 gettext 翻译保险，`LANGUAGES` 用于修复应用列表。
 
@@ -325,13 +324,13 @@ let name = if matches!(favorite, Favorite::Home) {
 
 # 修复清单
 
-| 层 | 问题 | 根因 | 修复 |
-|----|------|------|------|
-| 系统 | locale 非中文 | 未设置 | `localectl set-locale LANG=zh_CN.UTF-8` |
-| 会话 | 登录后 LANG 变回英文 | lang.sh 的 VT 控制台回退误判（COSMIC bug #207） | 用户 shell 配置里重设 `LANG` |
-| 环境 | environment.d 的 LANG 每次登录被 start-cosmic 重新导入的值覆盖、LANGUAGE 冗余 | start-cosmic 登录后把登录 shell 的变量重新导入用户管理器；LANGUAGE 只影响消息翻译 | environment.d 保留三行：`LANG`（兜底）、`LANGUAGE`（保险）、`LANGUAGES`（修复） |
-| 应用列表 | 应用名英文 | freedesktop-desktop-entry 的匹配 bug + `LANGUAGES` 拼写错误 | 设 `LANGUAGES=zh_CN` |
-| 文件管理器 | 文件夹显示英文 | COSMIC Files 未实现 xdg-user-dirs 翻译 | 暂无（等上游实现，见第五层） |
+| 层     | 问题                                                           | 根因                                                      | 修复                                                           |
+| ----- | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ |
+| 系统    | locale 非中文                                                   | 未设置                                                     | `localectl set-locale LANG=zh_CN.UTF-8`                      |
+| 会话    | 登录后 LANG 变回英文                                                | lang.sh 的 VT 控制台回退误判（[COSMIC bug #207](https://github.com/pop-os/cosmic-session/issues/207)）                 | 用户 shell 配置里重设 `LANG`                                        |
+| 环境    | environment.d 的 LANG 每次登录被 start-cosmic 重新导入的值覆盖、LANGUAGE 冗余 | start-cosmic 登录后把登录 shell 的变量重新导入用户管理器；LANGUAGE 只影响消息翻译 | environment.d 保留三行：`LANG`（兜底）、`LANGUAGE`（保险）、`LANGUAGES`（修复） |
+| 应用列表  | 应用名英文                                                        | freedesktop-desktop-entry 的匹配 bug + `LANGUAGES` 拼写错误    | 设 `LANGUAGES=zh_CN`                                          |
+| 文件管理器 | 文件夹显示英文                                                      | COSMIC Files 未实现 xdg-user-dirs 翻译                       | 暂无（等上游实现，见第五层）                                               |
 
 # 排查方法论
 
@@ -355,7 +354,7 @@ let name = if matches!(favorite, Favorite::Home) {
 
 # 后续维护
 
-这些都是 workaround，属于绕过上游 bug。等到 COSMIC 修复 `cosmic-session#207`、`freedesktop-desktop-entry` 修正语言匹配逻辑后，可以逐步清理：
+这些都是 workaround，属于绕过上游 bug。等到 COSMIC 修复 [cosmic-session#207](https://github.com/pop-os/cosmic-session/issues/207)、`freedesktop-desktop-entry` 修正语言匹配逻辑后，可以逐步清理：
 
 - fish 配置里的 `set -gx LANG zh_CN.UTF-8` 可以删掉
 - `LANGUAGES=zh_CN` 可以删掉
