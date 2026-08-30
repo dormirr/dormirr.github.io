@@ -14,13 +14,7 @@ on:
       hugoVersion:
         description: "Hugo Version"
         required: false
-        default: "0.155.3"
-
-# 设置 GITHUB_TOKEN 的权限，允许部署到 GitHub 页面
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+        default: "0.165.0"
 
 # 只允许串行部署，但不取消正在运行的任务
 concurrency:
@@ -35,9 +29,11 @@ defaults:
 jobs:
   # 构建任务
   build:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: ${{ github.event.inputs.hugoVersion || '0.155.3' }}
+      HUGO_VERSION: ${{ github.event.inputs.hugoVersion || '0.165.0' }}
       HUGO_ENVIRONMENT: production
       TZ: Asia/Shanghai
     steps:
@@ -50,14 +46,14 @@ jobs:
         run: sudo snap install dart-sass
 
       - name: 切换分支
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
           fetch-depth: 0
 
       - name: 配置 Github Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: 安装 Node.js 依赖
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
@@ -97,12 +93,15 @@ jobs:
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - name: 上传结果
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
   # 部署任务
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: GitHub Pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -111,4 +110,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
