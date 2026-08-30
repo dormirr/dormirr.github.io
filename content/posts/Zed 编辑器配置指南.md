@@ -4,12 +4,13 @@ tags:
   - 生活指南
   - 编辑器
   - 博客
+  - Zed
 生活场景: 编辑器
 share: true
 cover:
     image: ../../images/Zed 编辑器配置指南.webp
 date: 2026-02-25T17:32:00
-lastmod: 2026-05-04T22:25:00
+lastmod: 2026-08-31T01:05:00
 categories: 生活指南
 ---
 
