@@ -22,11 +22,17 @@ markup: # Markdown 渲染
     guessSyntax: true # 未指定语言时自动检测
     noClasses: false # 使用外部 CSS
     style: monokailight # 语法高亮样式
+outputFormats: # 自定义输出格式
+  llms:
+    mediaType: text/plain
+    baseName: llms
+    isPlainText: true
 outputs: # 生成文件
   home:
     - HTML
     - RSS
     - JSON
+    - llms
 minify: # 压缩
   disableXML: true
 enableInlineShortcodes: true # shortcode，类似于模板变量，可以在写 markdown 的时候便捷地插入，官方文档中有一个视频讲的很通俗
