@@ -4,7 +4,7 @@ copyright: 本博客的作品采用 [知识共享署名-非商业性使用-相�
 theme:
   - PaperMod
 hasCJKLanguage: true # 自动检测内容中的 CJK 语言，影响字数统计
-languageCode: zh-cn # 使用语言
+locale: zh-CN # 语言区域（BCP 47，替代已弃用的 languageCode）
 defaultContentLanguage: zh # 默认语言
 timeZone: Asia/Shanghai # 时区
 enableEmoji: true # Markdown 中使用 emoji
@@ -39,6 +39,8 @@ taxonomies: # 分类
   tag: tags
   series: series
 services:
+  googleAnalytics:
+    ID: G-DVWGEXY6TW
   instagram:
     disableInlineCSS: true
   x:
@@ -80,6 +82,9 @@ frontmatter:
     - :default
 params: # 自定义参数
   env: production
+  analytics:
+    bing:
+      SiteVerificationTag: 14966508B095AA4AD48709F773E35797
   title: 张天赐的小世界
   defaultTheme: auto # 主题颜色
   description: 张天赐的小世界，记录个人的学习与生活历程。
@@ -94,7 +99,6 @@ params: # 自定义参数
       title: 我的 GitHub
       url: https://github.com/dormirr
   assets: # Logo
-    disableHLJS: true
     favicon: Logo.jpg
     favicon16x16: Logo.jpg
     favicon32x32: Logo.jpg
@@ -121,7 +125,7 @@ params: # 自定义参数
     distance: 1000
     threshold: 0.4 # 0.0 完全匹配
     minMatchCharLength: 0
-    keys: [ "title", "permalink", "summary", "content" ]
+    keys: ["title", "permalink", "summary", "content"]
   comments: true # 开启评论
   giscus: # 评论配置
     repo: dormirr/dormirr.github.io
