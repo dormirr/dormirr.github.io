@@ -6,7 +6,7 @@ tags:
   - SQL
   - 博客
 cover:
-    image: ../../images/SQL 语句执行缓慢原因分析封面.webp
+    image: images/covers/SQL 语句执行缓慢原因分析封面.webp
 技术分类: 编程语言与框架
 编程语言: SQL
 share: true
