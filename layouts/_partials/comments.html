@@ -1,49 +1,64 @@
 <div id="tw-comment"></div>
 <script>
-    // 默认是暗色，根目录下的配置中的主题默认也是暗色
-    const getStoredTheme = () => localStorage.getItem("pref-theme") === "light" ? "{{ .Site.Params.giscus.lightTheme }}" : "{{ .Site.Params.giscus.darkTheme }}";
-    const setGiscusTheme = () => {
-        const sendMessage = (message) => {
-            const iframe = document.querySelector('iframe.giscus-frame');
-            if (iframe) {
-                iframe.contentWindow.postMessage({giscus: message}, 'https://giscus.app');
-            }
-        }
-        sendMessage({setConfig: {theme: getStoredTheme()}})
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const giscusAttributes = {
-            "src": "https://giscus.app/client.js",
-            "data-repo": "{{ .Site.Params.giscus.repo }}",
-            "data-repo-id": "{{ .Site.Params.giscus.repoId }}",
-            "data-category": "{{ .Site.Params.giscus.category }}",
-            "data-category-id": "{{ .Site.Params.giscus.categoryId }}",
-            "data-mapping": "{{ .Site.Params.giscus.mapping }}",
-            "data-strict": "{{ .Site.Params.giscus.strict }}",
-            "data-reactions-enabled": "{{ .Site.Params.giscus.reactionsEnabled }}",
-            "data-emit-metadata": "{{ .Site.Params.giscus.emitMetadata }}",
-            "data-input-position": "{{ .Site.Params.giscus.inputPosition }}",
-            "data-theme": getStoredTheme(),
-            "data-lang": "{{ .Site.Params.giscus.lang }}",
-            "data-loading": "lazy",
-            "crossorigin": "anonymous",
+    (() => {
+        const themes = {
+            light: "{{ .Site.Params.giscus.lightTheme }}",
+            dark: "{{ .Site.Params.giscus.darkTheme }}",
         };
 
-        // 动态创建 giscus script
-        const giscusScript = document.createElement("script");
-        Object.entries(giscusAttributes).forEach(
-            ([key, value]) => giscusScript.setAttribute(key, value));
-        document.querySelector("#tw-comment").appendChild(giscusScript);
+        // 主题有效性以 <html data-theme> 为准，回退到系统偏好
+        const resolvedTheme = () => {
+            const attr = document.documentElement.dataset.theme;
+            if (attr === "light" || attr === "dark") return attr;
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        };
 
-        // 页面主题变更后，变更 giscus 主题
-        const themeSwitcher = document.querySelector("#theme-toggle");
-        if (themeSwitcher) {
-            themeSwitcher.addEventListener("click", setGiscusTheme);
-        }
-        const themeFloatSwitcher = document.querySelector("#theme-toggle-float");
-        if (themeFloatSwitcher) {
-            themeFloatSwitcher.addEventListener("click", setGiscusTheme);
-        }
-    });
+        const giscusTheme = () => themes[resolvedTheme()] || "light";
+
+        const syncTheme = () => {
+            const iframe = document.querySelector("iframe.giscus-frame");
+            if (!iframe) return;
+            iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme() } } }, "https://giscus.app");
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector("#tw-comment");
+            if (!container) return;
+
+            const attributes = {
+                src: "https://giscus.app/client.js",
+                "data-repo": "{{ .Site.Params.giscus.repo }}",
+                "data-repo-id": "{{ .Site.Params.giscus.repoId }}",
+                "data-category": "{{ .Site.Params.giscus.category }}",
+                "data-category-id": "{{ .Site.Params.giscus.categoryId }}",
+                "data-mapping": "{{ .Site.Params.giscus.mapping }}",
+                "data-strict": "{{ .Site.Params.giscus.strict }}",
+                "data-reactions-enabled": "{{ .Site.Params.giscus.reactionsEnabled }}",
+                "data-emit-metadata": "{{ .Site.Params.giscus.emitMetadata }}",
+                "data-input-position": "{{ .Site.Params.giscus.inputPosition }}",
+                "data-theme": giscusTheme(),
+                "data-lang": "{{ .Site.Params.giscus.lang }}",
+                "data-loading": "lazy",
+                crossorigin: "anonymous",
+            };
+
+            const script = document.createElement("script");
+            Object.entries(attributes).forEach(([key, value]) => script.setAttribute(key, value));
+            container.appendChild(script);
+
+            // 主题按钮改的是 <html data-theme>，监听属性变化即可同步 iframe
+            new MutationObserver(syncTheme).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ["data-theme"],
+            });
+
+            // iframe 异步插入，出现后再补一次同步
+            new MutationObserver(() => {
+                const iframe = container.querySelector("iframe.giscus-frame");
+                if (iframe) iframe.addEventListener("load", syncTheme, { once: true });
+            }).observe(container, { childList: true, subtree: true });
+
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncTheme);
+        });
+    })();
 </script>
