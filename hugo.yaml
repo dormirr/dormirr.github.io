@@ -104,6 +104,8 @@ params: # 自定义参数
     - name: github
       title: 我的 GitHub
       url: https://github.com/dormirr
+  cover: # 封面图
+    responsiveImages: true
   assets: # Logo
     favicon: Logo.jpg
     favicon16x16: Logo.jpg
