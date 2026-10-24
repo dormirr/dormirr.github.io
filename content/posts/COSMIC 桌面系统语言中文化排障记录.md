@@ -10,9 +10,9 @@ tags:
 生活场景: Linux
 share: true
 date: 2026-08-23T16:40:00
-lastmod: 2026-08-31T01:16:00
+lastmod: 2026-08-31T01:17:00
 cover:
-    image: ../../images/COSMIC 桌面系统语言中文化排障记录.webp
+    image: images/covers/COSMIC 桌面系统语言中文化排障记录封面.webp
 categories: 生活指南
 ---
 
