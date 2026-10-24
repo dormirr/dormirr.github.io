@@ -7,7 +7,7 @@ tags:
 生活场景: Git
 share: true
 cover:
-    image: ../../images/Commit Message 规范.webp
+    image: images/covers/Commit Message 规范封面.webp
 date: 2020-10-03T11:14:00
 lastmod: 2026-04-26T16:11:00
 categories: 生活指南
