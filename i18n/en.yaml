@@ -1,0 +1,9 @@
+- id: created_date
+  translation:
+    one: "Created Date"
+    other: "created on %s"
+
+- id: modified_date
+  translation:
+    one: "Modified Date"
+    other: "modified on %s"
