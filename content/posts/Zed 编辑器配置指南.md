@@ -8,7 +8,7 @@ tags:
 生活场景: 编辑器
 share: true
 cover:
-    image: ../../images/Zed 编辑器配置指南.webp
+    image: images/covers/Zed 编辑器配置指南封面.webp
 date: 2026-02-25T17:32:00
 lastmod: 2026-08-31T03:23:00
 categories: 生活指南
