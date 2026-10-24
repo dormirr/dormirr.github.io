@@ -8,7 +8,7 @@ tags:
 编程语言: Java
 title: Java CompletableFuture 异步超时实现探索
 cover:
-    image: ../../images/Java CompletableFuture 异步超时实现探索封面.webp
+    image: images/covers/Java CompletableFuture 异步超时实现探索封面.webp
 share: true
 date: 2024-01-22T21:11:00
 lastmod: 2025-09-20T22:32:00
