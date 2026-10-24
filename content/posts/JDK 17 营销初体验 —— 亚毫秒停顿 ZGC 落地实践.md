@@ -6,7 +6,7 @@ tags:
   - 编程语言与框架
   - 博客
 cover:
-    image: ../../images/JDK 17 营销初体验 —— 亚毫秒停顿 ZGC 落地实践封面.webp
+    image: images/covers/JDK 17 营销初体验 —— 亚毫秒停顿 ZGC 落地实践封面.webp
 技术分类: 编程语言与框架
 编程语言: Java
 share: true
